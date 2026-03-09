@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel - UX GOOD SAMARITAN</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase.js"></script>
+<script src="admin.js" defer></script>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="login-page">
+  <div class="login-card">
+    <h1>Admin <span>Login</span></h1>
+    <input type="text" id="loginUser" placeholder="Username" class="finput">
+    <input type="password" id="loginPass" placeholder="Password" class="finput">
+    <button class="btn btn-p" onclick="loginAdmin()">Login</button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" class="admin-wrap" style="display:none;">
+  <aside class="admin-side">
+    <div class="admin-brand"><h2>UX <span>Admin</span></h2></div>
+    <div class="aside-item active" onclick="loadVideos()">Videos</div>
+  </aside>
+  <main class="admin-main">
+    <div class="admin-topbar"><h1>Video Management</h1></div>
+    <div class="admin-body">
+      <div class="aform">
+        <h3>Add / Edit Video</h3>
+        <input type="text" id="videoTitle" class="finput" placeholder="Title">
+        <input type="text" id="videoLink" class="finput" placeholder="Video Link">
+        <textarea id="videoDesc" class="ftxt" placeholder="Description"></textarea>
+        <button class="btn btn-p" onclick="currentEdit?updateVideo():addVideo()">Submit</button>
+      </div>
+
+      <div class="atable-wrap">
+        <table class="atable">
+          <thead>
+            <tr>
+              <th>Title</th><th>Views</th><th>Featured</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="videoTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
